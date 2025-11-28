@@ -9,164 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Roboto for the hero subtitle -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            /* full-page subtle grid background */
-            background-color: #ffffff;
-            background-image: url('grid.svg');
-            background-repeat: repeat;
-            background-size: 60px 60px;
-            background-position: center;
-            color: #333;
-        }
-        header {
-            background-color: transparent;
-            max-width: 1440px;
-            width: 100%;
-            height: 82px;
-            display: flex;
-            align-items: center;
-            margin: 0 auto;
-            position: relative;
-            box-sizing: border-box;
-            padding: 0 24px;
-            border-bottom: none;
-            z-index: 10;
-        }
-        .header-inner {
-            width: 100%;
-            max-width: 1440px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: relative;
-        }
-        .logo {
-            display:flex;
-            align-items:center;
-            gap:10px;
-        }
-        .logo img{ height:42px; width:auto; display:block }
-        .nav-center {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 32px;
-            align-items: center;
-            justify-content: center;
-        }
-        nav {
-            display: flex;
-            gap: 1rem;
-        }
-        .nav-center button,
-        nav button {
-            background: none;
-            border: none;
-            color: black;
-            font-size: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-        }
-        nav button:hover {
-            background-color: #f0f0f0;
-        }
-        .nav-right { display:flex; align-items:center; gap:12px }
-        .nav-right .register{
-            background: #00BFF2;
-            color: #fff;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .nav-right .register:hover{ opacity:0.95 }
-        /* responsive tweaks so items don't overlap on smaller screens */
-        @media (max-width: 1200px) {
-            .nav-center { position: static; transform: none; gap: 18px; }
-            .nav-center button { font-size: 22px; padding: 0.4rem 0.75rem }
-            header { height: 72px }
-            .logo img { height:38px }
-        }
-        @media (max-width: 640px) {
-            .nav-center { display:none }
-            .nav-right .register { padding: 8px 12px; font-size:14px }
-        }
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-        /* HERO styles */
-        .hero{
-            min-height: 520px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            /* hero sits on the page background (grid applied to body) */
-            background-color: transparent;
-            position: relative;
-            overflow: visible;
-        }
-        /* ensure the inner hero container can fit the 1112px wide pixel title */
-        .hero-inner{ max-width:1200px; text-align:center; }
-        .pixel-title{
-            font-family: 'Press Start 2P', 'Courier New', monospace;
-            /* requested size: 1112 x 48 */
-            width: 1112px;
-            max-width: 100%;
-            height: 48px;
-            font-size: 48px; /* scale font to fit 48px height */
-            color: #ff4d00;
-            margin: 0 auto 8px;
-            letter-spacing: 2px;
-            line-height: 48px; /* vertically center the text within 48px */
-            overflow: hidden;
-            display: block;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        /* subtitle required size 939 x 38 */
-        .hero-sub{ 
-            font-size: 18px; 
-            color:#222; 
-            margin: 10px auto 22px; 
-            font-family: 'Roboto', Arial, sans-serif; 
-            font-weight: 400;
-            width: 939px;
-            max-width: 100%;
-            height: 38px;
-            line-height: 38px; /* vertically center text in 38px box */
-            overflow: hidden;
-            text-align: center;
-            box-sizing: border-box;
-        }
-        .cta{ background:#00BFF2; color:white; border:none; padding:12px 20px; border-radius:6px; font-size:18px; cursor:pointer }
-        .hero-pixel{ position:absolute; right:40px; bottom:18px; width:120px; height:auto; image-rendering: pixelated; }
-
-        @media (max-width: 1200px){ .pixel-title{ width:90% } }
-        @media (max-width: 1000px){ .pixel-title{ font-size:40px; width:92% } .hero{ min-height:420px } .hero-pixel{ width:96px } }
-        @media (max-width: 640px){ .pixel-title{ font-size:28px; height:auto; line-height:1.1; width:96% } .hero{ min-height:260px; background-size:40px 40px } .hero-pixel{ display:none } .hero-sub{ width:92%; height:auto; line-height:1.4; font-size:14px } }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
-</head>
+    <link rel="stylesheet" href="css/styles.css">
+    <script>
+        // preloader placeholder (no-op) to keep head quick
+    </script>
+    </head>
 <body>
     <header>
         <div class="header-inner">
@@ -208,5 +55,6 @@
     <footer>
         <p>&copy; 2025 My Website</p>
     </footer>
+    <script src="js/main.js"></script>
 </body>
 </html>
