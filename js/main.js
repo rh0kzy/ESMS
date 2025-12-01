@@ -20,18 +20,54 @@ document.addEventListener('DOMContentLoaded', function(){
     window.location.href = '#register';
   }));
 });
-/* ----------- FAQ Toggle ----------- */
+// FAQ Carousel functionality
+let currentFaqIndex = 0;
+const faqItems = document.querySelectorAll('.faq-item');
+const dots = document.querySelectorAll('.dot');
 
-document.querySelectorAll(".faq-item").forEach(item => {
-    item.addEventListener("click", () => {
-        item.classList.toggle("open");
+function showSlide(index) {
+    // Remove active class from all items and dots
+    faqItems.forEach(item => item.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Handle index boundaries
+    if (index >= faqItems.length) {
+        currentFaqIndex = 0;
+    } else if (index < 0) {
+        currentFaqIndex = faqItems.length - 1;
+    } else {
+        currentFaqIndex = index;
+    }
+    
+    // Add active class to current item and dot
+    faqItems[currentFaqIndex].classList.add('active');
+    dots[currentFaqIndex].classList.add('active');
+}
+
+function changeSlide(direction) {
+    currentFaqIndex += direction;
+    showSlide(currentFaqIndex);
+}
+
+function currentSlide(index) {
+    currentFaqIndex = index;
+    showSlide(currentFaqIndex);
+}
+
+// Auto-advance carousel every 5 seconds
+let autoSlideInterval = setInterval(() => {
+    changeSlide(1);
+}, 5000);
+
+// Pause auto-advance when user interacts
+const carouselButtons = document.querySelectorAll('.carousel-btn, .dot');
+carouselButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        clearInterval(autoSlideInterval);
+        // Resume auto-advance after 10 seconds of no interaction
+        autoSlideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 10000);
     });
-});
-
-/* ----------- Contact form simple handler ----------- */
-
-document.getElementById("contactForm")?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    alert("Message sent successfully!");
 });
 
