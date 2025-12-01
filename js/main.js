@@ -20,3 +20,18 @@ document.addEventListener('DOMContentLoaded', function(){
     window.location.href = '#register';
   }));
 });
+/* ----------- FAQ Toggle ----------- */
+
+document.querySelectorAll(".faq-item").forEach(item => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("open");
+    });
+});
+
+/* ----------- Contact form simple handler ----------- */
+
+document.getElementById("contactForm")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Message sent successfully!");
+});
+
