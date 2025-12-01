@@ -1,5 +1,9 @@
 /* Externalized styles from index.html */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -39,7 +43,7 @@ header {
     align-items:center;
     gap:10px;
 }
-.logo img{ height:42px; width:auto; display:block }
+.logo img{ height:70px; width:auto; display:block }
 .nav-center {
     position: absolute;
     left: 50%;
@@ -54,7 +58,9 @@ nav {
     gap: 1rem;
 }
 .nav-center button,
-nav button {
+nav button,
+.nav-center a,
+nav a {
     background: none;
     border: none;
     color: black;
@@ -63,9 +69,12 @@ nav button {
     font-weight: 500;
     cursor: pointer;
     padding: 0.5rem 1rem;
+    text-decoration: none;
 }
-nav button:hover {
-    background-color: #f0f0f0;
+nav button:hover,
+nav a:hover,
+.nav-center a:hover {
+    background-color: transparent;
 }
 .nav-right { display:flex; align-items:center; gap:12px }
 .nav-right .register{
@@ -126,20 +135,19 @@ main {
 }
 /* subtitle required size 939 x 38 */
 .hero-sub{
-    font-size: 18px;
+    font-size: 28px;
     color:#222;
     margin: 10px auto 22px;
     font-family: 'Roboto', Arial, sans-serif;
     font-weight: 400;
     width: 939px;
     max-width: 100%;
-    height: 38px;
-    line-height: 38px; /* vertically center text in 38px box */
+    line-height: 1.4;
     overflow: hidden;
     text-align: center;
     box-sizing: border-box;
 }
-.cta{ background: url('../RegisterNow.png') no-repeat center center; background-size: cover; color: white; border: none; width: 200px; height: 100px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; margin: 0 auto; }
+.cta{ background: url('../RegisterNow.png') no-repeat center center; background-size: cover; color: white; border: none; width: 350px; height: 175px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto; }
 .hero-pixel{ position:absolute; right:40px; bottom:18px; width:120px; height:auto; image-rendering: pixelated; }
 
 @media (max-width: 1200px){ .pixel-title{ width:90% } }
