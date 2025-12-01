@@ -111,12 +111,73 @@ main {
     align-items:center;
     justify-content:center;
     /* hero sits on the page background (grid applied to body) */
-    background-color: transparent;
-    position: relative;
+    background-color: #ffffff;
+    background-image: url('../Grid.svg');
+    background-repeat: repeat;
+    background-position: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     overflow: visible;
 }
-/* ensure the inner hero container can fit the 1112px wide pixel title */
-.hero-inner{ max-width:1440px; text-align:center; }
+.hero-inner {
+    max-width: 1440px;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 .pixel-title{
     font-family: 'Press Start 2P', 'Courier New', monospace;
     /* requested size: 1112 x 48 */
@@ -160,7 +221,10 @@ main {
     padding: 0;
     text-align: center;
     color: white;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
 }
 .about-inner {
     width: 100%;
@@ -178,6 +242,7 @@ main {
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
+    animation: fadeInUp 0.8s ease-out;
 }
 .about p {
     font-size: 1.2rem;
@@ -191,16 +256,20 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 2rem;
+    animation: fadeIn 1s ease-out 0.3s both;
 }
 /* PARTNERS section */
 .partners {
     background: url('../PARTNERS.png') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 3;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
 }
 .partners-inner {
     width: 100%;
@@ -232,6 +301,7 @@ main {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     padding: 30px;
     box-sizing: border-box;
+    animation: scaleIn 0.8s ease-out;
 }
 .partners-card h3 {
     font-family: 'Montserrat', sans-serif;
@@ -253,10 +323,12 @@ main {
     max-width: 300px;
     max-height: 250px;
     object-fit: contain;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 .partners-logos .mc-logo {
     max-width: 450px;
     max-height: 350px;
+    animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 footer {
     background-color: #333;
