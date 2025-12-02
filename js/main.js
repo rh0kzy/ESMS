@@ -22,36 +22,72 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 // FAQ Carousel functionality
 let currentFaqIndex = 0;
-const faqItems = document.querySelectorAll('.faq-item');
+let isAnimating = false;
+const faqItems = document.querySelectorAll('.faq-content .faq-item');
 const dots = document.querySelectorAll('.dot');
 
-function showSlide(index) {
-    // Remove active class from all items and dots
-    faqItems.forEach(item => item.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
+function showSlide(index, direction = 1) {
+    if (isAnimating) return;
+    
+    const prevIndex = currentFaqIndex;
     
     // Handle index boundaries
     if (index >= faqItems.length) {
-        currentFaqIndex = 0;
+        index = 0;
     } else if (index < 0) {
-        currentFaqIndex = faqItems.length - 1;
-    } else {
-        currentFaqIndex = index;
+        index = faqItems.length - 1;
     }
     
-    // Add active class to current item and dot
-    faqItems[currentFaqIndex].classList.add('active');
-    dots[currentFaqIndex].classList.add('active');
+    if (index === prevIndex) return;
+    
+    isAnimating = true;
+    
+    // Remove all animation classes
+    faqItems.forEach(item => {
+        item.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slideInFromRight');
+    });
+    
+    // Update dots
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+    
+    const currentItem = faqItems[prevIndex];
+    const nextItem = faqItems[index];
+    
+    // Determine animation direction
+    if (direction > 0) {
+        // Going forward: current slides out left, next slides in from right
+        currentItem.classList.add('slide-out-left');
+        nextItem.classList.remove('active');
+        nextItem.style.display = 'block';
+        nextItem.classList.add('active');
+    } else {
+        // Going backward: current slides out right, next slides in from left
+        currentItem.classList.add('slide-out-right');
+        nextItem.classList.remove('active');
+        nextItem.style.display = 'block';
+        nextItem.classList.add('slide-in-left');
+        nextItem.classList.add('active');
+    }
+    
+    // After animation completes
+    setTimeout(() => {
+        currentItem.classList.remove('active', 'slide-out-left', 'slide-out-right');
+        currentItem.style.display = 'none';
+        nextItem.classList.remove('slide-in-left');
+        currentFaqIndex = index;
+        isAnimating = false;
+    }, 500);
 }
 
 function changeSlide(direction) {
-    currentFaqIndex += direction;
-    showSlide(currentFaqIndex);
+    const newIndex = currentFaqIndex + direction;
+    showSlide(newIndex, direction);
 }
 
 function currentSlide(index) {
-    currentFaqIndex = index;
-    showSlide(currentFaqIndex);
+    const direction = index > currentFaqIndex ? 1 : -1;
+    showSlide(index, direction);
 }
 
 // Auto-advance carousel every 5 seconds
