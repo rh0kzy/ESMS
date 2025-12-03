@@ -212,7 +212,7 @@ main {
     text-align: center;
     box-sizing: border-box;
 }
-.cta{ background: url('../RegisterNow.png') no-repeat center center; background-size: cover; color: white; border: none; width: 350px; height: 175px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto; }
+.cta{ background: url('../assets/images/RegisterNow.png') no-repeat center center; background-size: cover; color: white; border: none; width: 350px; height: 175px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold; margin: 0 auto; }
 .hero-pixel{ position:absolute; right:40px; bottom:18px; width:120px; height:auto; image-rendering: pixelated; }
 
 @media (max-width: 1200px){ .pixel-title{ width:90% } }
@@ -309,7 +309,7 @@ main {
 }
 /* PARTNERS section */
 .partners {
-    background: url('../PARTNERS.png') no-repeat center center;
+    background: url('../assets/images/PARTNERS.png') no-repeat center center;
     background-size: cover;
     min-height: 100vh;
     position: sticky;
