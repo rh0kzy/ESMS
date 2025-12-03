@@ -16,7 +16,7 @@ body {
     color: #333;
 }
 header {
-    background-color: #ffffff;
+    background-color: transparent;
     max-width: 1440px;
     width: 100%;
     height: 82px;
@@ -31,6 +31,7 @@ header {
     padding: 0 24px;
     border-bottom: none;
     z-index: 100;
+    transition: background-color 0.3s ease;
 }
 .header-inner {
     width: 100%;

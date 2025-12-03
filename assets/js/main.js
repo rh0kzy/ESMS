@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', function(){
   // Function to update navbar text color based on current section
   function updateNavbarColor() {
     const navLinks = document.querySelectorAll('.nav-center a');
+    const header = document.querySelector('header');
     const partnersSection = document.getElementById('partners');
     
-    if (partnersSection) {
+    if (partnersSection && header) {
       const rect = partnersSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
@@ -25,10 +26,12 @@ document.addEventListener('DOMContentLoaded', function(){
         navLinks.forEach(link => {
           link.style.color = '#ff4d00'; // Orange color
         });
+        header.style.backgroundColor = '#ffffff'; // White background on partners
       } else {
         navLinks.forEach(link => {
           link.style.color = 'black'; // Default black color
         });
+        header.style.backgroundColor = 'transparent'; // Transparent background elsewhere
       }
     }
   }
