@@ -775,6 +775,14 @@ main {
     margin-bottom: 40px;
 }
 
+.logo-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: scaleIn 0.8s ease-out;
+}
+
 .contact-logo {
     display: flex;
     flex-direction: column;
@@ -792,13 +800,13 @@ main {
     height: 80px;
     object-fit: contain;
     border-radius: 12px;
-    background: white;
+    background: transparent;
     padding: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact-logo span {
-    color: #000000;
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
