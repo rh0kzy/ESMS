@@ -8,6 +8,32 @@ document.addEventListener('DOMContentLoaded', function(){
   // Get the main padding top (accounts for fixed header)
   const mainPaddingTop = 82;
   
+  // Function to update navbar text color based on current section
+  function updateNavbarColor() {
+    const navLinks = document.querySelectorAll('.nav-center a');
+    const partnersSection = document.getElementById('partners');
+    
+    if (partnersSection) {
+      const rect = partnersSection.getBoundingClientRect();
+      // Check if partners section is in view (considering sticky behavior)
+      if (rect.top <= 100 && rect.bottom > 100) {
+        navLinks.forEach(link => {
+          link.style.color = '#ff4d00'; // Orange color
+        });
+      } else {
+        navLinks.forEach(link => {
+          link.style.color = 'black'; // Default black color
+        });
+      }
+    }
+  }
+  
+  // Update navbar color on scroll
+  window.addEventListener('scroll', updateNavbarColor);
+  
+  // Initial check
+  updateNavbarColor();
+  
   // Handle nav anchor links
   document.querySelectorAll('.nav-center a').forEach(link => {
     link.addEventListener('click', (e) => {
