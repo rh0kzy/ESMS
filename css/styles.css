@@ -872,25 +872,13 @@ main {
     box-shadow: 0 10px 30px rgba(10, 102, 194, 0.4);
 }
 
-.contact-info {
-    margin-top: 20px;
-    text-align: center;
+.social-btn.email {
+    background: #666;
 }
 
-.contact-info p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: #333;
-    margin: 0;
-}
-
-.contact-info a {
-    color: #00BFF2;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
+.social-btn.email:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 102, 102, 0.4);
 }
 
 /* ==================== FOOTER ==================== */
