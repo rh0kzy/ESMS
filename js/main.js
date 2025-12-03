@@ -1,14 +1,48 @@
 // Basic front-end behaviors for the site
 
-// Smooth scroll for nav buttons (if anchors exist later)
+// Smooth scroll for nav links with sticky section support
 document.addEventListener('DOMContentLoaded', function(){
-  document.querySelectorAll('nav button').forEach(btn => {
-    btn.addEventListener('click', (e)=>{
-      const text = e.target.textContent.trim().toLowerCase();
-      const id = text.replace(/\s+/g,'-');
-      const el = document.getElementById(id);
-      if(el){
-        el.scrollIntoView({behavior:'smooth'});
+  // Define section order for calculating scroll positions with sticky sections
+  const sectionOrder = ['home', 'about', 'partners', 'workshops', 'faq', 'contact'];
+  
+  // Get the main padding top (accounts for fixed header)
+  const mainPaddingTop = 82;
+  
+  // Handle nav anchor links
+  document.querySelectorAll('.nav-center a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      const targetId = href.replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      
+      if (targetEl) {
+        const targetIndex = sectionOrder.indexOf(targetId);
+        
+        // If going to home, always scroll to top
+        if (targetId === 'home') {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          return;
+        }
+        
+        // Calculate position by summing heights of all sections before target
+        // Add mainPaddingTop to account for the padding on main element
+        let scrollPosition = mainPaddingTop;
+        for (let i = 0; i < targetIndex; i++) {
+          const section = document.getElementById(sectionOrder[i]);
+          if (section) {
+            scrollPosition += section.offsetHeight;
+          }
+        }
+        
+        // Scroll to calculated position
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
