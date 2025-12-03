@@ -15,8 +15,13 @@ document.addEventListener('DOMContentLoaded', function(){
     
     if (partnersSection) {
       const rect = partnersSection.getBoundingClientRect();
-      // Check if partners section is in view (considering sticky behavior)
-      if (rect.top <= 100 && rect.bottom > 100) {
+      const windowHeight = window.innerHeight;
+      
+      // Check if partners section is visible in viewport
+      // Partners is visible when its top is above viewport bottom AND its bottom is below viewport top
+      const isPartnersVisible = rect.top < windowHeight && rect.bottom > 0 && rect.top <= 200;
+      
+      if (isPartnersVisible) {
         navLinks.forEach(link => {
           link.style.color = '#ff4d00'; // Orange color
         });
