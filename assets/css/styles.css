@@ -883,6 +883,24 @@ main {
     box-shadow: 0 10px 30px rgba(102, 102, 102, 0.4);
 }
 
+.social-btn.youtube {
+    background: #FF0000;
+}
+
+.social-btn.youtube:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+}
+
+.social-btn.x-twitter {
+    background: #000000;
+}
+
+.social-btn.x-twitter:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
 /* ==================== FOOTER ==================== */
 footer {
     background: linear-gradient(90deg, #00BFF2 0%, #0097A7 100%);
